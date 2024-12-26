@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiosk</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        .header {
+            width: 100%;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            text-align: right;
+        }
+
+        .header button {
+            background-color: #555;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .header button:hover {
+            background-color: #777;
+        }
+
+        .admin-panel, .kiosk-panel {
+            display: none;
+            padding: 20px;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .visible {
+            display: block;
+        }
+
+        .button-group button {
+            margin: 5px;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .menu-list {
+            margin: 20px 0;
+        }
+
+        .menu-list li {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <button id="settings-button">⚙️ 관리자 설정</button>
+    </div>
+
+    <div id="kiosk-panel" class="kiosk-panel visible">
+        <h1>키오스크</h1>
+        <ul class="menu-list" id="menu-list">
+            <li>메뉴 1</li>
+            <li>메뉴 2</li>
+            <li>메뉴 3</li>
+        </ul>
+    </div>
+
+    <div id="admin-panel" class="admin-panel">
+        <h1>관리자 모드</h1>
+        <div class="button-group">
+            <button id="add-menu">메뉴 추가</button>
+            <button id="delete-menu">메뉴 삭제</button>
+            <button id="view-sales">판매 내역 보기</button>
+            <button id="reset-sales">판매 내역 초기화</button>
+        </div>
+        <div id="sales-data" style="margin-top: 20px;"></div>
+    </div>
+
+    <script>
+        const settingsButton = document.getElementById('settings-button');
+        const kioskPanel = document.getElementById('kiosk-panel');
+        const adminPanel = document.getElementById('admin-panel');
+        const menuList = document.getElementById('menu-list');
+        const salesData = document.getElementById('sales-data');
+
+        let sales = [];
+
+        settingsButton.addEventListener('click', () => {
+            kioskPanel.classList.toggle('visible');
+            adminPanel.classList.toggle('visible');
+        });
+
+        document.getElementById('add-menu').addEventListener('click', () => {
+            const newMenu = prompt('추가할 메뉴 이름을 입력하세요:');
+            if (newMenu) {
+                const listItem = document.createElement('li');
+                listItem.textContent = newMenu;
+                menuList.appendChild(listItem);
+                alert(`${newMenu}가 추가되었습니다.`);
+            }
+        });
+
+        document.getElementById('delete-menu').addEventListener('click', () => {
+            const menuToDelete = prompt('삭제할 메뉴 이름을 입력하세요:');
+            const items = menuList.getElementsByTagName('li');
+            let found = false;
+
+            for (let item of items) {
+                if (item.textContent === menuToDelete) {
+                    menuList.removeChild(item);
+                    found = true;
+                    alert(`${menuToDelete}가 삭제되었습니다.`);
+                    break;
+                }
+            }
+
+            if (!found) {
+                alert(`${menuToDelete}를 찾을 수 없습니다.`);
+            }
+        });
+
+        document.getElementById('view-sales').addEventListener('click', () => {
+            salesData.innerHTML = sales.length > 0 ? 
+                `<h3>판매 내역:</h3><ul>${sales.map(item => `<li>${item}</li>`).join('')}</ul>` : 
+                '<h3>판매 내역이 없습니다.</h3>';
+        });
+
+        document.getElementById('reset-sales').addEventListener('click', () => {
+            if (confirm('정말로 판매 내역을 초기화하시겠습니까?')) {
+                sales = [];
+                salesData.innerHTML = '';
+                alert('판매 내역이 초기화되었습니다.');
+            }
+        });
+    </script>
+</body>
+</html>

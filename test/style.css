@@ -1,0 +1,106 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-color: #f1ebd7;
+}
+
+#header {
+    background-color: #3d6423;
+}
+
+#header_top {
+    display: flex;
+    justify-content: right;
+}
+#header_bottom {
+    padding-bottom: 40px;
+}
+
+#admin_btn {
+    background-color: #3d6423;
+    border-radius: 3px;
+    border: none !important;
+    cursor: pointer;
+}
+
+#admin_btn:hover {
+    background-color: #2e4b1b;
+}
+
+#admin_btn_img {
+    height: 30px;
+}
+
+#homac_logo {
+    display: flex;
+    justify-content: center;
+}
+
+#homac_logo_img {
+    height: 100px;
+}
+
+/* main 페이지 */
+
+#packing {
+    margin: 25px;
+    display: flex;
+    justify-content: space-evenly;
+    justify-items: center;
+}
+
+#ForHere_btn {
+    border: none !important;
+}
+
+#ForHere_btn:hover {
+    opacity: 80%;
+}
+
+#ToGo_btn {
+    border: none !important;
+}
+
+#ToGo_btn:hover {
+    opacity: 80%;
+}
+
+#ForHere_btn_img {
+    height: 400px;
+    border-radius: 10px;
+}
+
+#ToGo_btn_img {
+    height: 400px;
+    border-radius: 10px;
+}
+
+/* select menu 페이지 */
+#select_menu_page {
+    background-color: #2e4b1b;
+    height: 350px;
+    
+}
+
+#cont_wrap {
+    
+}
+
+
+#categories {
+    float: left;
+    width: 10%;
+}
+
+#menu {
+    width: 90%;
+}
+
+/* cart style */
+#cart {
+    height: 100px;
+    background-color: #dad0af;
+}

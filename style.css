@@ -1,0 +1,145 @@
+@font-face {
+    font-family: 'SBAggroB';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroB.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'SBAggroB';
+}
+
+#header {
+    position: fixed;
+    height: 60px;
+    width: 100%;
+    background-color: #3d6423;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* 로고 설정 */
+#homac_logo {
+    height: 100%;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+}
+
+#homac_logo_img {
+    height: 50%;
+}
+
+#selectable .ui-selected {
+    color: #f1ebd7;
+    font-size: 16px;
+}
+
+#selectable {
+    list-style-type: none;
+    display: flex;
+}
+
+#selectable li{
+    font-size: 12px;
+    margin: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    background: none;
+    cursor: pointer;
+}
+
+
+#admin_btn {
+    margin: 10px;
+    background: none;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+#admin_btn_img {
+    height: 30px;
+}
+
+/* 호떡 페이지 설정 */
+
+#main {
+    padding: 100px;
+    background-color: #f1ebd7;
+}
+
+#container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    place-items: center;    
+}
+
+.hotteok-img {
+    height: 250px;
+    border: 2px solid #eb3d0c;
+    border-radius: 15px;
+}
+
+/* 장바구니 영역 설정 */
+
+#footer {
+    position: fixed;
+    bottom: 0;
+    height: 120px;
+    width: 100%;
+
+    display: flex;
+}
+
+#cart {
+    background-color: #d5cfbd;
+
+    height: 100%;
+    width: 90%;
+}
+
+.item-card {
+    margin: 6px;
+
+    height: 85%;
+    width: 9%;
+    border-radius: 5px;
+    background-color: #3d96c3;
+    
+    display: grid;
+    /* gap: 3px; */
+}
+
+.info-this-food {
+    margin: 3px;
+    height: 70px;
+    background-color: white;
+}
+
+.info-this-sum {
+    margin: 3px;
+    background-color: #eb3d0c;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+#sum {
+    height: 100%;
+    width: 10%;
+    background-color: #3d6423;
+}
+
+.custom-state-active {
+    border: 2px dashed black;
+    opacity: 80%;
+}
